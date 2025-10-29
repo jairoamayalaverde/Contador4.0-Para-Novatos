@@ -1,0 +1,41 @@
+/* Contenido de css/styles.css */
+/* Estilos personalizados y configuración de fuentes */
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f8f9fa; /* Fondo gris muy claro */
+}
+.font-display {
+    font-family: 'Poppins', sans-serif;
+}
+/* Estilos para los modales */
+.modal-backdrop {
+    transition: opacity 0.3s ease;
+}
+.modal-content {
+    transition: all 0.3s ease;
+    transform: translateY(-20px);
+}
+.modal-open .modal-content {
+    transform: translateY(0);
+}
+/* Estilo para el botón de categoría activo */
+.category-btn.active {
+    background-color: #1e40af; /* Azul oscuro */
+    color: white;
+    font-weight: 700;
+}
+/* Estilos para scrollbar (sutil) */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #d1d5db; /* gris claro */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af; /* gris más oscuro */
+}
