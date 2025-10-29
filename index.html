@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contador 4.0 para Novatos</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
     <style>
         /* Estilos para las fuentes personalizadas */
         body {
@@ -55,12 +58,10 @@
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="antialiased text-gray-800">
 
-    <!-- Contenedor principal -->
     <div class="container mx-auto max-w-7xl px-4 py-8 md:py-12">
 
-        <!-- Cabecera -->
         <header class="text-center mb-8 md:mb-12">
             
             <h1 class="font-display text-4xl md:text-5xl font-bold text-blue-900">
@@ -68,31 +69,23 @@
             </h1>
             <p class="mt-2 text-lg text-gray-600">para Novatos</p>
 
-            <!-- Botón de Tips -->
             <button id="openTipsBtn" class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-800 rounded-lg font-medium hover:bg-blue-200 transition-colors shadow-sm">
                 <span class="text-xl">💡</span> Cómo usar esta App (Tips)
             </button>
         </header>
 
-        <!-- Controles: Búsqueda y Categorías -->
         <div class="mb-10">
-            <!-- Barra de Búsqueda -->
             <div class="mb-6">
                 <input type="text" id="searchInput" placeholder="Buscar prompts... (ej: 'IVA', 'Excel', 'Asiento')" class="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
             </div>
             
-            <!-- Filtros de Categoría -->
             <div id="categoryFilters" class="flex flex-wrap items-center justify-center gap-2">
-                <!-- Los botones de categoría se insertarán aquí dinámicamente -->
-            </div>
+                </div>
         </div>
 
-        <!-- Rejilla de Prompts -->
         <div id="promptsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Las tarjetas de prompts se insertarán aquí dinámicamente -->
-        </div>
+            </div>
 
-        <!-- Paginación -->
         <div id="paginationControls" class="flex items-center justify-between mt-12 border-t border-gray-200 pt-6">
             <button id="prevPageBtn" class="px-5 py-2.5 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
                 Anterior
@@ -103,7 +96,17 @@
             </button>
         </div>
 
-        <!-- Footer -->
+        
+        <div class="mt-12 pt-6 px-6 bg-blue-50 border border-blue-200/80 rounded-xl shadow-inner text-center">
+            <p class="text-base text-gray-700 font-medium leading-relaxed">
+                Si alguno de estos prompts soluciona tareas de tu ejercicio profesional puedes agregarlo a tu 
+                <a href="https://contador4-biblioteca.vercel.app/" target="_blank" rel="noopener noreferrer" class="font-bold text-blue-700 hover:text-blue-900 transition-colors underline underline-offset-4">
+                    biblioteca de prompts
+                </a> 
+                que es un complemento de tu compra - 
+                <span class="font-bold text-blue-800">Contador 4.0 Sistema de transformación con IA para contadores.</span>
+            </p>
+        </div>
         <footer class="mt-16 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
             <p>Contador 4.0 para novatos es un complemento del E.Book Contador 4.0 Sistema de Transformación con IA para contadores que incluye 200 prompts básicos y fue desarrollado por Jairo Amaya - Full Stack Marketer.</p>
             <p class="mt-2">Todos los derechos reservados © 2025.</p>
@@ -111,12 +114,10 @@
 
     </div>
 
-    <!-- Notificación "Toast" (oculta por defecto) -->
     <div id="toast" class="fixed bottom-5 right-5 bg-gray-900 text-white px-5 py-3 rounded-lg shadow-xl opacity-0 invisible transition-all duration-300 ease-in-out">
         ¡Prompt copiado al portapapeles!
     </div>
 
-    <!-- Modal 1: Usar Plantilla (oculto por defecto) -->
     <div id="templateModal" class="modal-backdrop fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible z-40">
         <div class="modal-content bg-white w-full max-w-lg rounded-xl shadow-2xl border border-gray-200 p-6 md:p-8">
             <div class="flex items-start justify-between mb-4">
@@ -132,10 +133,9 @@
         </div>
     </div>
     
-    <!-- Modal 2: Tips de Uso (oculto por defecto) -->
     <div id="tipsModal" class="modal-backdrop fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible z-40">
         <div class="modal-content bg-white w-full max-w-lg rounded-xl shadow-2xl border border-gray-200 p-6 md:p-8">
-             
+            
             <div class="flex items-start justify-between mb-6">
                 <h3 class="font-display text-2xl font-bold text-blue-900 text-left">💡 Cómo usar esta App</h3>
                 <button id="closeTipsModalBtn" class="text-gray-400 hover:text-gray-700 text-2xl" title="Cerrar">&times;</button>
@@ -178,7 +178,6 @@
     </div>
 
 
-    <!-- --- SCRIPT PRINCIPAL --- -->
     <script>
         // Event listener principal: Ejecutar cuando el DOM esté cargado
         document.addEventListener('DOMContentLoaded', () => {
@@ -483,7 +482,7 @@
                 { id: 100, title: "Diferencia entre Depreciación y Amortización", text: "Explica la diferencia entre 'Depreciación' y 'Amortización'. ¿Qué tipo de activos se deprecian y qué tipo se amortizan?", category: "niif" }
             
                 // <-- TERMINA DE PEGAR TUS NUEVOS PROMPTS ANTES DE ESTA LÍNEA -->
-            
+                
             ]; // Fin del array allPrompts
 
             
@@ -519,7 +518,7 @@
 
             // Función para filtrar y paginar los prompts
             function getFilteredPrompts() {
-                const term = state.searchTerm.toLowerCase();
+                const term = searchInput.value.toLowerCase();
                 
                 // 1. Filtrar por categoría
                 const categorized = state.activeCategory === 'all'
@@ -606,7 +605,6 @@
                         <div class="p-4 border-t border-gray-100 bg-gray-50/50 rounded-b-lg">
                             ${mainButtonsHTML}
                             
-                            <!-- Ejecutar en... -->
                             <div class="flex items-center justify-between gap-2 mt-3 pt-3 border-t border-gray-200/60">
                                 <span class="text-xs text-gray-500 font-medium">Ejecutar en:</span>
                                 <div class="flex gap-1">
@@ -805,4 +803,3 @@
     </script>
 </body>
 </html>
-          
