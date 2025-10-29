@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contador 4.0 para novatos</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-    
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Estilos personalizados y configuración de fuentes */
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: #f8f9fa; /* Fondo gris muy claro */
-        }
-        .font-display {
-            font-family: 'Poppins', sans-serif;
-        }
-        /* Estilos para los modales */
-        .modal-backdrop {
-            transition: opacity 0.3s ease;
-        }
-        .modal-content {
-            transition: all 0.3s ease;
-            transform: translateY(-20px);
-        }
-        .modal-open .modal-content {
-            transform: translateY(0);
-        }
-        /* Estilo para el botón de categoría activo */
-        .category-btn.active {
-            background-color: #1e40af; /* Azul oscuro */
-            color: white;
-            font-weight: 700;
-        }
-        /* Estilos para scrollbar (sutil) */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #d1d5db; /* gris claro */
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #9ca3af; /* gris más oscuro */
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador 4.0 para novatos</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos personalizados y configuración de fuentes */
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f8f9fa; /* Fondo gris muy claro */
+        }
+        .font-display {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Estilos para los modales */
+        .modal-backdrop {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transition: all 0.3s ease;
+            transform: translateY(-20px);
+        }
+        .modal-open .modal-content {
+            transform: translateY(0);
+        }
+        /* Estilo para el botón de categoría activo */
+        .category-btn.active {
+            background-color: #1e40af; /* Azul oscuro */
+            color: white;
+            font-weight: 700;
+        }
+        /* Estilos para scrollbar (sutil) */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d5db; /* gris claro */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af; /* gris más oscuro */
+        }
+    </style>
 </head>
+       
+         
 <body class="antialiased text-gray-800">
 
         <div class="container mx-auto max-w-7xl px-4 py-8 md:py-12">
