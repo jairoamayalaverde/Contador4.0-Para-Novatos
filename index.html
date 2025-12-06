@@ -8,259 +8,216 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%233b82f6%22 stroke=%22%233b82f6%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polygon points=%2213 2 3 14 12 14 11 22 21 10 12 10 13 2%22/></svg>">
     <meta name="theme-color" content="#0f172a">
 
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* ---------- VARIABLES DARK MODE ---------- */
+        /* ---------- VARIABLES DARK MODE (Cyber-Tech) ---------- */
         :root {
             --bg-body: #0f172a;       /* Slate 900 */
             --bg-card: #1e293b;       /* Slate 800 */
             --bg-input: #020617;      /* Slate 950 */
+            
             --primary: #3b82f6;       /* Azul Neón */
             --primary-glow: rgba(59, 130, 246, 0.5);
+            
             --text-main: #f8fafc;     /* Blanco */
             --text-muted: #94a3b8;    /* Gris azulado */
             --border: #334155;        /* Borde sutil */
+            
             --success: #10b981;       /* Verde */
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Lato', sans-serif;
             background-color: var(--bg-body);
             color: var(--text-main);
-            min-height: 100vh;
-            padding-top: 20px;
-            display: flex;
-            flex-direction: column;
             background-image: 
                 radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 25%),
                 radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 25%);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            flex: 1;
+        .font-display { font-family: 'Poppins', sans-serif; }
+
+        /* HEADER */
+        .header-cyber {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-cyber::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: 0.5;
         }
 
-        /* ---------- HEADER ---------- */
-        .header { text-align: center; margin-bottom: 40px; padding: 40px 20px; }
-        .header h1 {
-            font-family: 'Poppins', sans-serif; font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800; margin-bottom: 10px; color: white; letter-spacing: -1px;
-        }
-        .header h1 span { color: var(--primary); text-shadow: 0 0 20px var(--primary-glow); }
-        .header p { font-size: 1.1rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.6; }
-
-        /* ---------- CONTROLS ---------- */
-        .controls-section {
-            background: var(--bg-card); border: 1px solid var(--border);
-            padding: 24px; border-radius: 20px; margin-bottom: 40px;
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-        }
-
-        .top-actions { display: flex; justify-content: center; gap: 15px; margin-bottom: 24px; flex-wrap: wrap; }
-
-        .btn-action {
-            display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
-            border-radius: 12px; font-weight: 700; text-decoration: none;
-            transition: all 0.2s; font-size: 0.9rem; cursor: pointer; border: 1px solid transparent;
-        }
-        .btn-tips { background: rgba(255,255,255,0.05); color: var(--text-muted); border-color: var(--border); }
-        .btn-tips:hover { background: rgba(255,255,255,0.1); color: white; border-color: white; }
-        .btn-download { background: var(--primary); color: white; box-shadow: 0 0 15px var(--primary-glow); }
-        .btn-download:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 0 25px var(--primary-glow); }
-
-        /* Buscador */
-        .search-container { position: relative; max-width: 600px; margin: 0 auto 24px; }
+        /* INPUTS & CONTROLES */
         #searchInput {
-            width: 100%; padding: 14px 24px; padding-left: 50px;
-            border-radius: 14px; background: var(--bg-input); border: 1px solid var(--border);
-            color: white; font-size: 1rem; outline: none; transition: all 0.3s;
+            background-color: var(--bg-input);
+            border-color: var(--border);
+            color: white;
         }
-        #searchInput:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
-        .search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
+        #searchInput:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px var(--primary-glow);
+        }
 
-        /* Filtros */
-        .filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-        .filter-btn {
-            background: var(--bg-input); border: 1px solid var(--border);
-            color: var(--text-muted); padding: 8px 16px; border-radius: 20px;
-            cursor: pointer; transition: all 0.2s; font-size: 0.9rem; font-weight: 500;
+        /* CATEGORIAS */
+        .category-btn {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
         }
-        .filter-btn:hover { color: white; border-color: var(--primary); }
-        .filter-btn.active {
-            background: var(--primary); color: white; border-color: var(--primary);
+        .category-btn:hover { border-color: var(--primary); color: white; }
+        .category-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
             box-shadow: 0 0 10px var(--primary-glow);
         }
 
-        /* ---------- GRID DE PROMPTS (Soporte Dual) ---------- */
-        .prompts-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 24px; margin-bottom: 40px;
+        /* TARJETAS (PROMPTS) */
+        .prompt-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-
-        /* Soporte para ambas clases posibles generadas por JS (.prompt-card y .card) */
-        .prompt-card, .card {
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: 16px; padding: 24px; transition: all 0.3s ease;
-            position: relative; display: flex; flex-direction: column; height: 100%;
-            color: var(--text-main); /* Asegura texto visible */
-        }
-        .prompt-card:hover, .card:hover {
-            transform: translateY(-5px); border-color: var(--primary);
+        .prompt-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
             box-shadow: 0 10px 30px -10px rgba(0,0,0,0.6);
         }
-        .prompt-card::before, .card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0;
-            height: 3px; background: linear-gradient(90deg, var(--primary), #60a5fa); opacity: 0.7;
+        .prompt-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--primary), #60a5fa); opacity: 0.7;
         }
 
-        /* Estilos internos de la tarjeta */
-        .card-header, .prompt-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-        
-        .prompt-id, .card-id {
-            background: rgba(59, 130, 246, 0.15); color: #60a5fa;
-            font-size: 0.75rem; font-weight: 700; padding: 4px 8px; border-radius: 6px;
+        /* Botones dentro de tarjetas */
+        .btn-action-dark {
+            background-color: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+        .btn-action-dark:hover {
+            border-color: var(--primary);
+            color: white;
+            background-color: rgba(59, 130, 246, 0.1);
         }
 
-        .prompt-title, h3 { /* h3 por si el script usa etiquetas */
-            color: white; font-family: 'Poppins', sans-serif; font-weight: 700;
-            font-size: 1.1rem; margin-bottom: 10px; line-height: 1.4;
+        /* Botón Plantilla */
+        .btn-plantilla {
+            background-color: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        .btn-plantilla:hover {
+            background-color: rgba(245, 158, 11, 0.25);
+            border-color: #fbbf24;
         }
 
-        .prompt-preview, p { /* p genérico dentro de tarjeta */
-            color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;
-            margin-bottom: 20px; flex-grow: 1;
-            display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+        /* Botón Copiar Principal */
+        .btn-copy-main {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+        .btn-copy-main:hover {
+            background-color: #2563eb;
         }
 
-        /* Botones dentro de la tarjeta */
-        .card-actions, .prompt-actions { margin-top: auto; display: flex; gap: 10px; }
-        
-        .btn-copy, button { /* Estilo genérico para botones creados por JS */
-            padding: 10px; background: var(--bg-input); border: 1px solid var(--border);
-            color: white; border-radius: 8px; font-weight: 600; cursor: pointer;
-            transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px;
-        }
-        .btn-copy:hover { border-color: var(--primary); background: rgba(59, 130, 246, 0.1); }
-
-        /* ---------- PAGINATION ---------- */
-        .pagination { display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 60px; }
+        /* Paginación */
         .btn-page {
-            background: var(--bg-card); border: 1px solid var(--border); color: white;
-            padding: 10px 20px; border-radius: 10px; cursor: pointer; font-weight: 600;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            color: white;
         }
-        .btn-page:hover:not(:disabled) { border-color: var(--primary); background: rgba(59, 130, 246, 0.1); }
-        .btn-page:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-page:hover:not(:disabled) {
+            border-color: var(--primary);
+        }
+        .btn-page:disabled { opacity: 0.5; }
 
-        /* ---------- FOOTER 3D ---------- */
+        /* FOOTER 3D */
         .footer-container-3d {
-            position: relative; margin-top: auto;
+            position: relative; margin-top: 8rem;
             background-color: var(--bg-card); border-top: 1px solid var(--border);
-            padding-top: 20px;
-        }
-        @keyframes float {
-            0% { transform: translate(-50%, 0px); }
-            50% { transform: translate(-50%, -12px); }
-            100% { transform: translate(-50%, 0px); }
+            padding-top: 2rem; padding-bottom: 2rem;
         }
         .robot-wrapper {
             position: absolute; top: -130px; left: 50%;
-            transform: translateX(-50%); z-index: 10; width: 150px;
+            transform: translateX(-50%); width: 150px; z-index: 10;
             animation: float 4s ease-in-out infinite; pointer-events: none;
         }
-        .robot-img { width: 100%; height: auto; display: block; filter: drop-shadow(0 10px 30px rgba(59, 130, 246, 0.4)); }
+        .robot-img { width: 100%; filter: drop-shadow(0 10px 30px rgba(59, 130, 246, 0.4)); }
         .robot-bubble {
-            position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
-            background: white; color: #0f172a; padding: 6px 16px; border-radius: 20px;
-            font-size: 0.8rem; font-weight: 800; white-space: nowrap;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3); border: 2px solid #dbeafe;
+            position: absolute; top: -40px; left: 50%;
+            transform: translateX(-50%); background: white; color: #0f172a;
+            padding: 6px 16px; border-radius: 20px; font-weight: 800; font-size: 0.8rem;
+            white-space: nowrap; border: 2px solid #dbeafe; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
         .robot-bubble::after {
-            content: ''; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
-            border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 6px solid white;
+            content: ''; position: absolute; bottom: -6px; left: 50%;
+            transform: translateX(-50%); border-left: 6px solid transparent;
+            border-right: 6px solid transparent; border-top: 6px solid white;
         }
+        @keyframes float { 0% { transform: translate(-50%, 0px); } 50% { transform: translate(-50%, -12px); } 100% { transform: translate(-50%, 0px); } }
+        
         .neon-divider {
-            height: 4px; width: 100%; margin-bottom: 30px;
+            height: 4px; width: 100%; margin-bottom: 2rem;
             background: linear-gradient(90deg, var(--bg-card) 0%, var(--primary) 50%, var(--bg-card) 100%);
             box-shadow: 0 0 20px var(--primary-glow);
         }
-        .app-footer { padding: 40px 20px; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
-        .app-footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
-        .app-footer a:hover { color: white; text-shadow: 0 0 10px var(--primary-glow); }
 
-        /* ---------- TOAST & MODAL ---------- */
-        .toast {
-            position: fixed; bottom: 20px; right: 20px; background: #10b981;
-            color: #0f172a; padding: 12px 24px; border-radius: 10px; font-weight: 700;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3); transform: translateY(100px);
-            transition: transform 0.3s; z-index: 2000;
-        }
-        .toast.show { transform: translateY(0); }
-        
-        .modal-overlay {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px); display: none; z-index: 1000;
-        }
-        .modal {
-            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            background: var(--bg-card); border: 1px solid var(--border);
-            width: 90%; max-width: 500px; padding: 30px; border-radius: 20px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7); display: none; z-index: 1001;
-        }
-        .modal.active { display: block; }
-        .close-btn { position: absolute; top: 15px; right: 15px; background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
-        .modal h3 { color: white; margin-bottom: 15px; font-family: 'Poppins', sans-serif; }
-        .modal p, .modal li { color: var(--text-muted); line-height: 1.6; margin-bottom: 10px; }
-
-        @media (max-width: 768px) {
-            .header h1 { font-size: 2rem; }
-            .prompts-grid { grid-template-columns: 1fr; }
-            .top-actions { flex-direction: column; }
-            .btn-action { width: 100%; justify-content: center; }
+        /* MODAL */
+        .modal-content-dark {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-main);
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <header class="header">
-            <h1>Contador 4.0 <span>para Novatos</span></h1>
-            <p>El complemento del E-book "Sistema de transformación con IA", con 100 prompts esenciales para empezar tu viaje.</p>
-        </header>
+    <div class="container mx-auto max-w-7xl px-4 pt-8 pb-20 flex-grow">
 
-        <section class="controls-section">
-            <div class="top-actions">
-                <button id="tipsBtn" class="btn-action btn-tips">💡 Cómo usar esta App</button>
-                <a href="https://docs.google.com/spreadsheets/d/1C4aw-6r4H6oqzSJBMTWPpifH0mv_RrOh/edit?usp=sharing&ouid=117747348782923671781&rtpof=true&sd=true" target="_blank" class="btn-action btn-download">
+        <header class="header-cyber p-8 md:p-12 mb-10 text-center relative shadow-2xl">
+            <h1 class="font-display text-4xl md:text-5xl font-bold mb-4">
+                Contador 4.0 <span style="color: var(--primary); text-shadow: 0 0 20px var(--primary-glow);">para Novatos</span>
+            </h1>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+                El complemento del E.book "Sistema de transformación con IA para contadores", con 100 prompts esenciales para empezar.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <button id="openTipsBtn" class="px-5 py-2.5 rounded-lg font-bold text-sm bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-gray-300">
+                    💡 Cómo usar esta App
+                </button>
+                <a href="https://docs.google.com/spreadsheets/d/1C4aw-6r4H6oqzSJBMTWPpifH0mv_RrOh/edit?usp=sharing&ouid=117747348782923671781&rtpof=true&sd=true" target="_blank" class="px-5 py-2.5 rounded-lg font-bold text-sm bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/30 transition-all transform hover:-translate-y-0.5">
                     📥 Descargar 21 Plantillas (Excel)
                 </a>
             </div>
+        </header>
 
-            <div class="search-container">
-                <span class="search-icon">🔍</span>
-                <input type="text" id="searchInput" placeholder="Buscar prompt por palabra clave..." />
+        <div class="mb-12">
+            <div class="max-w-2xl mx-auto mb-8 relative">
+                <input type="text" id="searchInput" placeholder="Buscar prompt por palabra clave..." class="w-full p-4 pl-12 rounded-xl text-lg transition-all focus:outline-none">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-xl">🔍</span>
+            </div>
+            
+            <div id="categoryFilters" class="flex flex-wrap justify-center gap-3">
+                </div>
+        </div>
+
+        <div id="promptsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             </div>
 
-            <div class="filters" id="categoryFilters">
-                <button class="filter-btn active" data-category="all" data-filter="all">Todos</button>
-                <button class="filter-btn" data-category="Basico" data-filter="Basico">Básicos</button>
-                <button class="filter-btn" data-category="Intermedio" data-filter="Intermedio">Intermedios</button>
-                <button class="filter-btn" data-category="Avanzado" data-filter="Avanzado">Avanzados</button>
-            </div>
-        </section>
-
-        <div id="promptsContainer" class="prompts-grid"></div>
-
-        <div class="pagination">
-            <button id="prevBtn" class="btn-page" disabled>← Anterior</button>
-            <span id="pageInfo" style="color: var(--text-muted);">Página 1 de 1</span>
-            <button id="nextBtn" class="btn-page" disabled>Siguiente →</button>
+        <div id="paginationControls" class="flex justify-center items-center gap-6">
+            <button id="prevPageBtn" class="btn-page px-6 py-2 rounded-lg font-bold transition-colors disabled:opacity-50">Anterior</button>
+            <span id="pageInfo" class="text-gray-400 font-mono">Página 1 de 1</span>
+            <button id="nextPageBtn" class="btn-page px-6 py-2 rounded-lg font-bold transition-colors disabled:opacity-50">Siguiente</button>
         </div>
 
     </div>
@@ -268,38 +225,322 @@
     <div class="footer-container-3d">
         <div class="robot-wrapper">
             <div class="robot-bubble">¡Empieza aquí! 🚀</div>
-            <img src="https://contador4-0-master.vercel.app/personaje-contador.png" alt="Asistente Contador" class="robot-img">
+            <img src="https://contador4-0-master.vercel.app/personaje-contador.png" alt="Asistente" class="robot-img">
         </div>
         <div class="neon-divider"></div>
-        <footer class="app-footer">
-            <p>Contador 4.0 para Novatos es un desarrollo de <a href="https://jairoamaya.co" target="_blank">Jairo Amaya - Full Stack Marketer</a>.</p>
-            <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 10px;">Todos los derechos reservados © 2025.</p>
+        <footer class="text-center text-gray-500 text-sm">
+            <p>Contador 4.0 para Novatos • Desarrollado por <a href="https://jairoamaya.co" target="_blank" class="text-blue-400 hover:text-white transition-colors">Jairo Amaya</a></p>
+            <p class="mt-2 opacity-60">Todos los derechos reservados © 2025.</p>
         </footer>
     </div>
 
-    <div id="tipsModal" class="modal">
-        <button class="close-btn" onclick="closeModal('tipsModal')">&times;</button>
-        <h3>💡 Cómo usar esta App</h3>
-        <ul style="padding-left: 20px; color: var(--text-muted);">
-            <li><strong>Descarga Primero:</strong> Usa el botón de arriba para bajar las plantillas.</li>
-            <li><strong>Filtra:</strong> Navega por categorías.</li>
-            <li><strong>Copia:</strong> Dale clic a "Copiar" y pégalo en tu IA favorita.</li>
-        </ul>
+    <div id="tipsModal" class="modal-backdrop fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 invisible opacity-0 transition-all z-50">
+        <div class="modal-content-dark w-full max-w-lg rounded-2xl shadow-2xl p-8 relative transform scale-95 transition-all">
+            <button id="closeTipsBtn" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+            <h3 class="font-display text-2xl font-bold text-white mb-6">💡 Guía Rápida</h3>
+            <ul class="space-y-4 text-gray-300">
+                <li><strong>1. Descarga:</strong> Baja el Excel de plantillas primero.</li>
+                <li><strong>2. Busca:</strong> Usa el buscador o los filtros.</li>
+                <li><strong>3. Copia:</strong> Usa el botón azul para llevar el prompt a ChatGPT.</li>
+            </ul>
+        </div>
     </div>
 
-    <div id="toast" class="toast">¡Copiado al portapapeles!</div>
+    <div id="templateModal" class="modal-backdrop fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 invisible opacity-0 transition-all z-50">
+        <div class="modal-content-dark w-full max-w-lg rounded-2xl shadow-2xl p-8 relative">
+            <button id="closeTemplateModalBtn" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+            <h3 id="templateModalTitle" class="font-display text-xl font-bold text-white mb-4"></h3>
+            <p id="templateModalInstructions" class="text-gray-300 whitespace-pre-line"></p>
+        </div>
+    </div>
 
-    <script src="script.js"></script> 
-    
+    <div id="toast" class="fixed bottom-5 right-5 bg-green-500 text-black font-bold px-6 py-3 rounded-lg shadow-xl translate-y-20 transition-all z-50">
+        ¡Copiado al portapapeles!
+    </div>
+
     <script>
-        function closeModal(id) {
-            document.getElementById(id).classList.remove('active');
-            document.querySelector('.modal-overlay')?.classList.remove('active');
-        }
-        document.getElementById('tipsBtn').addEventListener('click', () => {
-            document.getElementById('tipsModal').classList.add('active');
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Iniciando Contador 4.0 Dark Mode...");
+
+            // 1. DATA (TODOS LOS 100 PROMPTS)
+            const categories = {
+                'fundamentos': 'Fundamentos',
+                'estados-financieros': 'Estados Financieros',
+                'costos': 'Costos',
+                'impuestos': 'Impuestos',
+                'gerencial': 'Gerencial',
+                'auditoria': 'Auditoría',
+                'niif': 'NIIF',
+                'herramientas': 'Herramientas',
+                'especial': 'Especial'
+            };
+
+            const allPrompts = [
+               { id: 1, title: "Definir Asiento Contable", text: "Explica qué es un asiento contable simple y un asiento contable compuesto. Da un ejemplo de cada uno (ej: compra simple al contado y compra a crédito con IVA).", category: "fundamentos" },
+               { id: 2, title: "Análisis Rápido de Estado de Resultados", text: "Actúa como un analista financiero. Revisa este Estado de Resultados [pegar aquí el E.R. simplificado] e identifica 3 tendencias clave o puntos de alarma para la gerencia.", category: "estados-financieros", templateName: "Plantilla 5: Estado de Resultados", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 5: Estado de Resultados'.\n2. Completa la plantilla con los datos de tu cliente.\n3. Copia los totales de Ingresos, Costos y Utilidad.\n4. Pégalos en el prompt para un análisis rápido." },
+               { id: 3, title: "Diferencia entre Costo y Gasto", text: "Define qué es un 'costo' y qué es un 'gasto' en contabilidad. Explica por qué el costo de la mercancía vendida (CMV) es un costo y por qué el alquiler de la oficina es un gasto.", category: "costos" },
+               { id: 4, title: "Calcular IVA a Pagar", text: "Actúa como un asesor de impuestos. Mi IVA en ventas (débito fiscal) fue de [Monto A] y mi IVA en compras (crédito fiscal) fue de [Monto B]. Explícame cómo se calcula el IVA a pagar y cuál sería el monto.", category: "impuestos", templateName: "Plantilla 12: Cálculo de Impuestos", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 12: Cálculo de Impuestos'.\n2. Usa la plantilla para registrar tus débitos (IVA en ventas) y créditos (IVA en compras).\n3. Pega los totales en este prompt para entender el cálculo." },
+               { id: 5, title: "Correo para Cliente Moroso", text: "Redacta un correo profesional pero amable para un cliente cuya factura [Número de Factura] venció hace [N] días. Recuérdale el monto y ofrécele opciones de pago.", category: "gerencial" },
+               { id: 6, title: "Asiento de Nómina Simple", text: "Escribe el asiento contable para una nómina simple. Gasto de Salarios: [Monto A], Retenciones por Pagar (Impuestos): [Monto B], Seguridad Social por Pagar: [Monto C]. El pago neto se hace desde Bancos.", category: "fundamentos", templateName: "Plantilla 9: Nómina Sencilla", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 9: Nómina Sencilla' para calcular los valores.\n2. Pega los totales de Gasto, Retenciones y Aportes en este prompt.\n3. La IA te ayudará a estructurar el asiento contable." },
+               { id: 7, title: "Propósito de la Auditoría", text: "Explica en términos sencillos cuál es el propósito principal de una auditoría de estados financieros. ¿Qué significa 'opinión de auditoría'?", category: "auditoria" },
+               { id: 8, title: "Fórmula de Excel para Antigüedad", text: "Necesito clasificar mi cartera de clientes en 0-30, 31-60, 61-90 y +90 días. Si la fecha de la factura está en A2 y la fecha de hoy está en B2 (con =HOY()), ¿cuál es la fórmula de Excel anidada (con SI o IFS) para mostrar esta clasificación?", category: "herramientas", templateName: "Plantilla 4: Cuentas por Cobrar", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 4: Cuentas por Cobrar'.\n2. La plantilla calcula la antigüedad.\n3. Este prompt te da una fórmula alternativa para hacerlo directamente en Excel." },
+               { id: 9, title: "Concepto de NIIF para PYMES", text: "¿Qué son las NIIF para PYMES? Explica en qué se diferencian principalmente de las NIIF Plenas y por qué son importantes para las pequeñas y medianas empresas.", category: "niif" },
+               { id: 10, title: "Explicar la Partida Doble", text: "Explica el principio de partida doble a alguien que no sabe nada de contabilidad. Usa la ecuación patrimonial (Activo = Pasivo + Patrimonio) con un ejemplo simple, como 'comprar un computador a crédito'.", category: "fundamentos" },
+               { id: 11, title: "Tipos de Costos", text: "Explica la diferencia entre costos fijos y costos variables. Da 2 ejemplos de cada uno para una panadería (ej: alquiler vs. harina).", category: "costos" },
+               { id: 12, title: "Preparar Conciliación Bancaria", text: "Mi saldo en libros es [Monto A] y el saldo del extracto bancario es [Monto B]. Tengo cheques en circulación por [Monto C] y un depósito en tránsito de [Monto D]. Prepara una conciliación bancaria simple para encontrar el saldo correcto.", category: "estados-financieros", templateName: "Plantilla 2: Conciliación Bancaria", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 2: Conciliación Bancaria'.\n2. Llena la plantilla con los datos de tu extracto y tus libros.\n3. Pega los totales en este prompt para verificar la lógica." },
+               { id: 13, title: "Punto de Equilibrio", text: "Calcula el punto de equilibrio en unidades. Mis costos fijos totales son [Monto CF], el precio de venta por unidad es [Monto P] y el costo variable por unidad es [Monto CV]. Muestra la fórmula y el resultado.", category: "costos", templateName: "Plantilla 15: Análisis de Punto de Equilibrio", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 15: Análisis de Punto de Equilibrio'.\n2. Llena la plantilla con tus datos.\n3. Pega los mismos datos en este prompt para obtener una explicación de la fórmula." },
+               { id: 14, title: "Tipos de Retención", text: "Explica qué es la retención en la fuente y cuáles son los 3 tipos más comunes (ej: por salarios, por compras, por servicios) que un contador novato debe conocer.", category: "impuestos" },
+               { id: 15, title: "Flujo de Caja Básico", text: "Explica qué es el Flujo de Caja Operativo, de Inversión y de Financiación. Da un ejemplo de una actividad para cada categoría.", category: "estados-financieros", templateName: "Plantilla 7: Flujo de Efectivo", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 7: Flujo de Efectivo'.\n2. Observa cómo se clasifican las actividades.\n3. Usa este prompt para entender la teoría detrás de esa clasificación." },
+               { id: 16, title: "Riesgos de Auditoría", text: "Define brevemente los 3 componentes del riesgo de auditoría (Riesgo Inherente, Riesgo de Control, Riesgo de Detección).", category: "auditoria" },
+               { id: 17, title: "Tratamiento de Inventarios", text: "Según la NIC 2 (NIIF para PYMES Sección 13), ¿cómo se deben valorar los inventarios al cierre del período? (Pista: el menor entre...)", category: "niif", templateName: "Plantilla 8: Control de Inventario", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 8: Control de Inventario'.\n2. Este prompt te explica la base teórica (NIC 2 / NIIF) de cómo debes valorar ese inventario al final del período." },
+               { id: 18, title: "BuscarV (VLOOKUP) en Excel", text: "Explica la fórmula BUSCARV (VLOOKUP) de Excel. Quiero buscar el precio de [Producto] (celda C2) en una lista de precios (rango A10:B100), donde el precio está en la columna 2, y quiero una coincidencia exacta.", category: "herramientas" },
+               { id: 19, title: "Análisis Vertical", text: "Realiza un análisis vertical simple del Estado de Resultados. Ingresos: 1000, Costos: 600, Gastos Op: 250, Utilidad Neta: 150. Muestra cada partida como un porcentaje del total de ingresos.", category: "estados-financieros", templateName: "Plantilla 5: Estado de Resultados", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 5: Estado de Resultados'.\n2. Completa la plantilla con los datos de tu cliente.\n3. Pega los valores en este prompt para obtener un análisis vertical (porcentual) instantáneo." },
+               { id: 20, title: "Correo Solicitar Documentos", text: "Redacta un correo para un cliente solicitando los documentos de fin de mes (extractos bancarios, facturas de compra, reportes de ventas) para poder iniciar el cierre contable.", category: "especial" },
+               { id: 21, title: "Ecuación Patrimonial", text: "Explica la Ecuación Patrimonial (Activo = Pasivo + Patrimonio). Da un ejemplo de una transacción que afecte las tres partes (ej: Aporte de socio con un vehículo y una deuda).", category: "fundamentos" },
+               { id: 22, title: "Diferencia entre Devengado y Percibido", text: "Explica la diferencia entre contabilidad por devengo (causación) y contabilidad de caja (percibido). ¿Por qué la mayoría de las empresas usa devengo?", category: "fundamentos" },
+               { id: 23, title: "Asiento de Apertura", text: "Voy a iniciar una empresa. Escribe el asiento de apertura para un negocio que empieza con: Efectivo (Caja) [Monto A], Inventario [Monto B], y un Aporte de Capital de [Monto C].", category: "fundamentos" },
+               { id: 24, title: "Qué es el PUC (Plan de Cuentas)", text: "Explica qué es un Plan de Cuentas (como el PUC en Colombia u otro local). ¿Por qué es importante que las cuentas estén codificadas (ej: 1105 Caja)?", category: "fundamentos", templateName: "Plantilla 20: Plan de Cuentas", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 20: Plan de Cuentas'.\n2. Usa este prompt para entender la lógica y la importancia de esa estructura." },
+               { id: 25, title: "Asiento de Venta a Crédito", text: "Registra el asiento contable de una venta a crédito. Vendí mercancía por [Valor Venta], el IVA es de [Monto IVA]. El cliente me lo pagará en 30 días.", category: "fundamentos" },
+               { id: 26, title: "Asiento de Compra de Inventario", text: "Registra el asiento contable de una compra de inventario a crédito. Compré mercancía por [Valor Compra], el IVA (crédito fiscal) es de [Monto IVA]. Lo pagaré en 60 días.", category: "fundamentos" },
+               { id: 27, title: "Asiento de Gasto Pagado por Anticipado", text: "Pagué [Monto A] por el seguro de la oficina que cubre 12 meses. Escribe el asiento inicial para registrar este gasto pagado por anticipado.", category: "fundamentos" },
+               { id: 28, title: "Asiento de Amortización de Gasto", text: "Basado en el prompt anterior (seguro de 12 meses por [Monto A]), escribe el asiento de ajuste mensual para registrar el gasto de seguro de un solo mes.", category: "fundamentos" },
+               { id: 29, title: "Definir Activo Corriente vs. No Corriente", text: "Explica qué es un Activo Corriente y un Activo No Corriente. Da 2 ejemplos de cada uno.", category: "fundamentos" },
+               { id: 30, title: "Definir Pasivo Corriente vs. No Corriente", text: "Explica qué es un Pasivo Corriente y un Pasivo No Corriente. Da 2 ejemplos de cada uno.", category: "fundamentos" },
+               { id: 31, title: "Elementos del Estado de Situación Financiera", text: "Nombra los 3 elementos principales del Estado de Situación Financiera. ¿Qué representa cada uno?", category: "estados-financieros", templateName: "Plantilla 6: Estado de Situación Financiera", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 6: Estado de Situación Financiera'.\n2. Observa las 3 secciones (Activo, Pasivo, Patrimonio).\n3. Usa este prompt para entender la teoría detrás de ellas." },
+               { id: 32, title: "Elementos del Estado de Resultados", text: "Nombra los 3 elementos principales del Estado de Resultados (Ingresos, Costos, Gastos). ¿Qué representa cada uno?", category: "estados-financieros" },
+               { id: 33, title: "Calcular Utilidad Bruta", text: "Si mis Ventas Netas son [Monto A] y mi Costo de Mercancía Vendida (CMV) es [Monto B], ¿cuál es mi Utilidad Bruta y qué significa ese número?", category: "estados-financieros" },
+               { id: 34, title: "Calcular Utilidad Operativa", text: "Mi Utilidad Bruta es [Monto A], y mis Gastos Operativos (Administración y Ventas) son [Monto B]. ¿Cuál es mi Utilidad Operativa (EBIT)? ¿Por qué es importante?", category: "estados-financieros" },
+               { id: 35, title: "Análisis Horizontal", text: "Realiza un análisis horizontal simple. Año 1 Ventas: [Monto A], Año 2 Ventas: [Monto B]. Calcula la variación absoluta y la variación relativa (porcentaje).", category: "estados-financieros" },
+               { id: 36, title: "Qué es el Capital de Trabajo", text: "Explica qué es el Capital de Trabajo Neto Contable (Activo Corriente - Pasivo Corriente) y qué indica sobre una empresa.", category: "estados-financieros" },
+               { id: 37, title: "Estado de Cambios en el Patrimonio", text: "Explica de forma simple qué muestra el Estado de Cambios en el Patrimonio. ¿Qué tipo de movimientos se ven ahí?", category: "estados-financieros", templateName: "Plantilla 21: Estado de Cambios en el Patrimonio", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 21: Estado de Cambios...'.\n2. Usa este prompt para entender el propósito de ese estado financiero." },
+               { id: 38, title: "Notas a los Estados Financieros", text: "Para un contador novato, ¿por qué son importantes las notas a los estados financieros? ¿Qué tipo de información revelan?", category: "estados-financieros" },
+               { id: 39, title: "Ratio de Liquidez Corriente", text: "Calcula el ratio de Liquidez Corriente (Razón Corriente). Mi Activo Corriente es [Monto A] y mi Pasivo Corriente es [Monto B]. ¿Qué significa si el resultado es 1.5?", category: "estados-financieros", templateName: "Plantilla 19: Análisis de Ratios Financieros", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 19: Análisis de Ratios'.\n2. Llena la plantilla con los datos del E.S.F.\n3. Compara el resultado de la plantilla con este prompt." },
+               { id: 40, title: "Ratio de Endeudamiento", text: "Calcula el Nivel de Endeudamiento. Mi Total Pasivo es [Monto A] y mi Total Activo es [Monto B]. ¿Qué significa si el resultado es 0.6 (o 60%)?", category: "estados-financieros", templateName: "Plantilla 19: Análisis de Ratios Financieros", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 19: Análisis de Ratios'.\n2. Llena la plantilla con los datos del E.S.F.\n3. Compara el resultado de la plantilla con este prompt." },
+               { id: 41, title: "Costo Directo vs Indirecto", text: "Explica qué es un Costo Directo y un Costo Indirecto en una fábrica de muebles. Da un ejemplo de cada uno (ej: madera vs. pegamento).", category: "costos" },
+               { id: 42, title: "Calcular Costo Primo", text: "Calcula el Costo Primo. La Materia Prima Directa es [Monto A] y la Mano de Obra Directa es [Monto B].", category: "costos" },
+               { id: 43, title: "Calcular Costo de Conversión", text: "Calcula el Costo de Conversión. La Mano de Obra Directa es [Monto A] y los Costos Indirectos de Fabricación (CIF) son [Monto B].", category: "costos" },
+               { id: 44, title: "Qué son los CIF", text: "Define qué son los Costos Indirectos de Fabricación (CIF). Da 3 ejemplos en una fábrica.", category: "costos" },
+               { id: 45, title: "Prorrateo de CIF", text: "Explica de forma simple qué significa 'prorratear' o 'asignar' los CIF a los productos. ¿Por qué se debe hacer?", category: "costos" },
+               { id: 46, title: "Qué es el Impuesto de Renta", text: "Explica de forma simple qué es el Impuesto de Renta (o ISR) para una empresa. ¿Sobre qué valor se calcula generalmente?", category: "impuestos", templateName: "Plantilla 12: Cálculo de Impuestos", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 12: Cálculo de Impuestos'.\n2. Usa la plantilla para estimar el Impuesto de Renta (ISR).\n3. Usa este prompt para entender el concepto teórico." },
+               { id: 47, title: "Persona Natural vs Jurídica", text: "En términos fiscales, ¿cuál es la principal diferencia entre una 'Persona Natural' y una 'Persona Jurídica' (Empresa)?", category: "impuestos" },
+               { id: 48, title: "Qué es un Parafiscal", text: "Explica qué es un aporte parafiscal. ¿Son lo mismo que un impuesto? Da el ejemplo de los aportes a Seguridad Social (Salud, Pensión).", category: "impuestos" },
+               { id: 49, title: "Declaración de Impuestos", text: "Explica qué es una 'Declaración de Impuestos' (ej: Declaración de IVA o de Renta). ¿Qué se le está informando a la autoridad fiscal?", category: "impuestos" },
+               { id: 50, title: "Asiento de Provisión de Impuesto", text: "Mi utilidad antes de impuestos es [Monto A] y la tasa de impuesto de renta es [Tasa %]. Escribe el asiento de ajuste para provisionar este impuesto.", category: "impuestos" },
+               { id: 51, title: "Qué es el RUT/NIT", text: "Explica qué es el [RUT / NIT / RFC] y por qué es fundamental para toda factura o transacción comercial.", category: "impuestos" },
+               { id: 52, title: "Utilidad vs Flujo de Caja", text: "Mi empresa tiene 'Utilidad Neta' pero no tengo dinero en el banco. Explica brevemente por qué puede pasar esto (ej: ventas a crédito).", category: "gerencial" },
+               { id: 53, title: "Qué es un Presupuesto", text: "Explica por qué un contador novato debe ayudar a hacer un presupuesto. ¿Qué se busca controlar con un presupuesto?", category: "gerencial", templateName: "Plantilla 10: Presupuesto Anual", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 10: Presupuesto Anual'.\n2. Este prompt te explica por qué esa plantilla es una herramienta gerencial clave." },
+               { id: 54, title: "Correo Recordar Impuestos", text: "Redacta un correo corto para un cliente recordándole que la declaración de [Nombre del Impuesto] vence el [Fecha] y que necesitas su información antes del [Fecha].", category: "gerencial" },
+               { id: 55, title: "Explicar Antigüedad de Cartera", text: "Explica a un gerente qué significa el reporte de 'Antigüedad de Cuentas por Cobrar'. ¿Por qué es alarmante tener un alto porcentaje en +90 días?", category: "gerencial", templateName: "Plantilla 4: Cuentas por Cobrar", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 4: Cuentas por Cobrar' para obtener la antigüedad.\n2. Usa este prompt para generar el texto que le enviarás a tu cliente explicando esos resultados." },
+               { id: 56, title: "Calcular Margen Bruto", text: "Calcula el Margen de Utilidad Bruta (%). Mis Ventas Netas son [Monto A] y mi Utilidad Bruta es [Monto B]. ¿Qué significa si el resultado es 30%?", category: "gerencial" },
+               { id: 57, title: "Calcular Margen Neto", text: "Calcula el Margen de Utilidad Neta (%). Mis Ventas Netas son [Monto A] y mi Utilidad Neta es [Monto B]. ¿Qué significa si el resultado es 5%?", category: "gerencial" },
+               { id: 58, title: "Resumen Ejecutivo Simple", text: "Prepara un resumen ejecutivo simple para un cliente. Total Ingresos: [Monto A], Total Egresos: [Monto B]. Resultado: [Monto C]. Destaca el gasto más alto.", category: "gerencial", templateName: "Plantilla 1: Registro de Ingresos y Gastos", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 1: Registro de Ingresos y Gastos'.\n2. Usa la plantilla para totalizar los ingresos y gastos del mes.\n3. Pega los totales en este prompt para redactar un resumen ejecutivo." },
+               { id: 59, title: "Auditoría Interna vs Externa", text: "Explica brevemente la diferencia entre una auditoría interna y una auditoría externa (financiera). ¿Quién contrata a cada una y cuál es su objetivo?", category: "auditoria" },
+               { id: 60, title: "Qué es el Control Interno", text: "Define qué es el 'Control Interno' en una empresa. Da un ejemplo de un buen control interno (ej: 'separación de funciones').", category: "auditoria" },
+               { id: 61, title: "Qué es una Muestra", text: "Explica por qué los auditores revisan 'muestras' en lugar de revisar el 100% de las transacciones. ¿Qué buscan con esa muestra?", category: "auditoria" },
+               { id: 62, title: "Carta de Gerencia", text: "Al final de una auditoría, ¿qué es la 'Carta de Representación' o 'Carta de Gerencia' que la administración le firma al auditor?", category: "auditoria" },
+               { id: 63, title: "Opinión Limpia", text: "En un informe de auditoría, ¿qué significa recibir una 'opinión limpia' o 'no calificada'? ¿Es bueno o malo?", category: "auditoria" },
+               { id: 64, title: "Pruebas Sustantivas vs Control", text: "Explica la diferencia simple entre una 'prueba de control' y una 'prueba sustantiva'.", category: "auditoria" },
+               { id: 65, title: "Qué es Valor Razonable", text: "En NIIF, ¿qué significa el término 'Valor Razonable' (Fair Value)? ¿Es lo mismo que el costo histórico?", category: "niif" },
+               { id: 66, title: "Reconocimiento de Ingresos", text: "De forma muy simple, según la NIIF 15, ¿cuál es el principio básico para reconocer un ingreso? (Pista: control).", category: "niif" },
+               { id: 67, title: "Propiedad, Planta y Equipo", text: "Según la NIC 16, ¿qué es 'Propiedad, Planta y Equipo'? ¿Un computador comprado para la oficina es PP&E? ¿Y uno para revender?", category: "niif", templateName: "Plantilla 11: Control de Activos Fijos", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 11: Control de Activos Fijos'.\n2. Este prompt te da la base teórica (NIC 16) sobre qué activos debes registrar allí." },
+               { id: 68, title: "Depreciación (NIC 16)", text: "Explica qué es la depreciación y por qué se debe registrar. Si un vehículo costó [Monto A] y su vida útil es de [N] años, ¿cuál es el gasto anual?", category: "niif", templateName: "Plantilla 11: Control de Activos Fijos", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 11: Control de Activos Fijos'.\n2. La plantilla te ayuda a calcular la depreciación.\n3. Pega los datos de un activo en este prompt para entender el cálculo." },
+               { id: 69, title: "Arrendamientos (NIIF 16)", text: "De forma muy simple, ¿cuál fue el principal cambio que introdujo la NIIF 16 para quien toma un arrendamiento (arrendatario)?", category: "niif" },
+               { id: 70, title: "Hechos Posteriores", text: "Según la NIC 10, ¿qué es un 'Hecho Ocurrido después del Período sobre el que se Informa'? Da un ejemplo.", category: "niif" },
+               { id: 71, title: "SUMAR.SI en Excel", text: "Explica la fórmula SUMAR.SI. Quiero sumar montos de la columna B si la columna A dice 'Gasolina'.", category: "herramientas" },
+               { id: 72, title: "PROMEDIO.SI en Excel", text: "Escribe la fórmula PROMEDIO.SI. Quiero el promedio de ventas (columna C) solo para el 'Vendedor A' (columna D).", category: "herramientas" },
+               { id: 73, title: "CONTAR.SI en Excel", text: "Escribe la fórmula CONTAR.SI. Quiero contar cuántas facturas (columna A) están 'Vencidas' (columna F).", category: "herramientas" },
+               { id: 74, title: "Qué es Tabla Dinámica", text: "Explica de forma simple qué es una Tabla Dinámica en Excel y para qué la usaría un contador.", category: "herramientas" },
+               { id: 75, title: "Fórmula CONCATENAR", text: "Explica la fórmula CONCATENAR. Quiero unir Nombre (A2) y Apellido (B2) separados por espacio.", category: "herramientas" },
+               { id: 76, title: "Formato Condicional", text: "Explica qué es el 'Formato Condicional' en Excel. Da un ejemplo útil para un contador.", category: "herramientas" },
+               { id: 77, title: "Inmovilizar Paneles", text: "En Excel, ¿para qué sirve la función 'Inmovilizar Paneles'?", category: "herramientas" },
+               { id: 78, title: "Fórmula SI.ERROR", text: "Explica qué hace la fórmula SI.ERROR. Tengo una división que a veces da error y quiero que muestre 0.", category: "herramientas" },
+               { id: 79, title: "Atajo Autosuma", text: "¿Cuál es el atajo de teclado más rápido para hacer una Autosuma en Excel?", category: "herramientas" },
+               { id: 80, title: "HOY() vs AHORA()", text: "En Excel, ¿cuál es la diferencia entre la fórmula =HOY() y =AHORA()?", category: "herramientas" },
+               { id: 81, title: "Factura Proforma", text: "Explica qué es una Factura Proforma y en qué se diferencia de una factura comercial final.", category: "especial", templateName: "Plantilla 16: Factura Proforma", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 16: Factura Proforma'.\n2. Usa este prompt para entender el propósito y uso de este documento." },
+               { id: 82, title: "Reporte Gastos de Viaje", text: "Como contador novato, ¿por qué es importante pedir un Reporte de Gastos de Viaje a los empleados?", category: "especial", templateName: "Plantilla 18: Reporte de Gastos de Viaje", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 18: Gastos de Viaje'.\n2. Este prompt te explica por qué este control es importante." },
+               { id: 83, title: "Amortización de Préstamo", text: "Explica qué significa 'amortizar' un préstamo. ¿Por qué la cuota mensual se divide en 'capital' e 'intereses'?", category: "especial", templateName: "Plantilla 17: Control de Préstamos", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 17: Control de Préstamos'.\n2. Usa la plantilla para simular un préstamo.\n3. Este prompt te ayuda a entender la teoría." },
+               { id: 84, title: "Correo Bienvenida Cliente", text: "Redacta un correo de bienvenida para un nuevo cliente. Preséntate como su contador asignado y solicita los primeros documentos.", category: "especial" },
+               { id: 85, title: "Correo Respuesta Simple", text: "Redacta un correo plantilla para responder a una consulta simple de un cliente.", category: "especial" },
+               { id: 86, title: "Qué es Cierre de Mes", text: "Como contador novato, ¿qué significa 'hacer el cierre de mes'? Nombra 3 tareas típicas.", category: "especial" },
+               { id: 87, title: "Checklist Cierre de Mes", text: "Dame un checklist de 5 tareas esenciales que un contador novato no debe olvidar para el cierre de mes.", category: "especial" },
+               { id: 88, title: "Organizar Archivos Digitales", text: "Dame un consejo simple sobre cómo organizar las facturas digitales (PDF, XML) que envían los clientes.", category: "especial" },
+               { id: 89, title: "Qué es una Provisión", text: "Explica qué es una 'provisión' contable. ¿Por qué se registra algo que aún no se ha pagado?", category: "fundamentos" },
+               { id: 90, title: "Asiento de Depreciación", text: "Escribe el asiento de ajuste mensual para registrar el gasto de depreciación de un activo.", category: "fundamentos" },
+               { id: 91, title: "Asiento Préstamo Bancario", text: "El banco me aprobó un préstamo y desembolsó [Monto A]. Escribe el asiento para registrar la entrada del dinero.", category: "fundamentos" },
+               { id: 92, title: "Asiento Pago Préstamo", text: "Pagué la cuota del préstamo. El total fue [Monto A] (Capital + Intereses). Escribe el asiento.", category: "fundamentos", templateName: "Plantilla 17: Control de Préstamos", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 17: Control de Préstamos'.\n2. La plantilla te muestra la división.\n3. Usa este prompt para saber cómo registrarlo." },
+               { id: 93, title: "Libro Diario vs Mayor", text: "Explica la diferencia entre el Libro Diario y el Libro Mayor.", category: "fundamentos", templateName: "Plantilla 13 y 14: Libro Diario y Mayor", templateInstructions: "1. De tu pack de plantillas, abre la 'Plantilla 13 y 14'.\n2. Este prompt te explica la función de cada uno." },
+               { id: 94, title: "Concepto de Causación", text: "Explica el concepto de 'causar' un gasto. ¿Por qué registro la factura en el mes que se usó aunque la pague después?", category: "fundamentos" },
+               { id: 95, title: "Utilidad Retenida", text: "En el Patrimonio, ¿qué significa la cuenta 'Utilidades Retenidas'?", category: "fundamentos" },
+               { id: 96, title: "Asiento Pago Proveedor", text: "Voy a pagar una factura de un proveedor que ya había registrado a crédito. El monto es [Monto A]. Escribe el asiento.", category: "fundamentos" },
+               { id: 97, title: "Asiento Recaudo Cartera", text: "Un cliente me pagó una factura que le había vendido a crédito. El monto es [Monto A]. Escribe el asiento.", category: "fundamentos" },
+               { id: 98, title: "Importancia Conciliación", text: "¿Por qué es tan importante hacer la conciliación bancaria cada mes? ¿Qué errores puedo detectar?", category: "estados-financieros" },
+               { id: 99, title: "Correo Corrección Factura", text: "Redacta un correo amable a un proveedor pidiéndole que corrija una factura por un dato erróneo.", category: "especial" },
+               { id: 100, title: "Depreciación vs Amortización", text: "Explica la diferencia entre 'Depreciación' y 'Amortización'. ¿Qué activos se deprecian y cuáles se amortizan?", category: "niif" }
+            ];
+
+            let state = {
+                currentPage: 1,
+                itemsPerPage: 12,
+                searchTerm: '',
+                activeCategory: 'all'
+            };
+
+            // DOM
+            const grid = document.getElementById('promptsGrid');
+            const searchInput = document.getElementById('searchInput');
+            const filtersContainer = document.getElementById('categoryFilters');
+            const prevBtn = document.getElementById('prevPageBtn');
+            const nextBtn = document.getElementById('nextPageBtn');
+            const pageInfo = document.getElementById('pageInfo');
+            const toast = document.getElementById('toast');
+
+            // 2. RENDERIZADO
+            function renderCategories() {
+                const counts = allPrompts.reduce((acc, p) => {
+                    acc[p.category] = (acc[p.category] || 0) + 1;
+                    return acc;
+                }, {});
+
+                let html = `<button class="category-btn px-4 py-2 rounded-lg text-sm font-medium transition-colors ${state.activeCategory === 'all' ? 'active' : ''}" data-category="all">Todos (${allPrompts.length})</button>`;
+                
+                for (const key in categories) {
+                    if (counts[key]) {
+                        html += `<button class="category-btn px-4 py-2 rounded-lg text-sm font-medium transition-colors ${state.activeCategory === key ? 'active' : ''}" data-category="${key}">${categories[key]} (${counts[key]})</button>`;
+                    }
+                }
+                filtersContainer.innerHTML = html;
+            }
+
+            function renderPrompts() {
+                // Filtros
+                let filtered = state.activeCategory === 'all' 
+                    ? allPrompts 
+                    : allPrompts.filter(p => p.category === state.activeCategory);
+                
+                if (state.searchTerm) {
+                    const term = state.searchTerm.toLowerCase();
+                    filtered = filtered.filter(p => 
+                        p.title.toLowerCase().includes(term) || 
+                        p.text.toLowerCase().includes(term)
+                    );
+                }
+
+                // Paginación
+                const totalPages = Math.ceil(filtered.length / state.itemsPerPage) || 1;
+                if (state.currentPage > totalPages) state.currentPage = 1;
+                
+                const start = (state.currentPage - 1) * state.itemsPerPage;
+                const end = start + state.itemsPerPage;
+                const pageItems = filtered.slice(start, end);
+
+                // HTML Grid
+                if (pageItems.length === 0) {
+                    grid.innerHTML = `<p class="col-span-full text-center text-gray-500 py-10">No se encontraron resultados.</p>`;
+                } else {
+                    grid.innerHTML = pageItems.map(p => {
+                        const isTemplate = p.templateName ? true : false;
+                        return `
+                        <div class="prompt-card flex flex-col p-6 h-full" data-id="${p.id}">
+                            <div class="mb-4">
+                                <span class="text-xs font-bold uppercase tracking-wider text-blue-400 bg-blue-900/30 px-2 py-1 rounded border border-blue-500/30">
+                                    ${categories[p.category]}
+                                </span>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2 leading-tight">${p.title}</h3>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow line-clamp-3">${p.text}</p>
+                            
+                            <div class="mt-auto space-y-3">
+                                ${isTemplate ? `
+                                <button onclick="showTemplate(${p.id})" class="btn-plantilla w-full py-2 rounded-lg font-bold text-sm flex justify-center items-center gap-2 transition-transform active:scale-95">
+                                    📋 Usar Plantilla
+                                </button>` : ''}
+                                
+                                <button onclick="copyText(${p.id})" class="btn-copy-main w-full py-2.5 rounded-lg font-bold text-sm transition-transform active:scale-95 flex justify-center items-center gap-2">
+                                    Copiar Prompt
+                                </button>
+
+                                <div class="flex gap-2 pt-3 border-t border-gray-700/50">
+                                    <button onclick="openAI('chatgpt', ${p.id})" class="btn-action-dark flex-1 py-1.5 rounded text-xs font-medium transition-colors">ChatGPT</button>
+                                    <button onclick="openAI('claude', ${p.id})" class="btn-action-dark flex-1 py-1.5 rounded text-xs font-medium transition-colors">Claude</button>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                    }).join('');
+                }
+
+                // Actualizar Paginación
+                pageInfo.textContent = `Página ${state.currentPage} de ${totalPages}`;
+                prevBtn.disabled = state.currentPage === 1;
+                nextBtn.disabled = state.currentPage === totalPages;
+                
+                // Ocultar si solo hay 1 página
+                document.getElementById('paginationControls').style.display = totalPages > 1 ? 'flex' : 'none';
+            }
+
+            // 3. ACCIONES
+            window.copyText = (id) => {
+                const p = allPrompts.find(x => x.id === id);
+                if(p) {
+                    navigator.clipboard.writeText(p.text);
+                    toast.classList.remove('translate-y-20');
+                    setTimeout(() => toast.classList.add('translate-y-20'), 2000);
+                }
+            };
+
+            window.showTemplate = (id) => {
+                const p = allPrompts.find(x => x.id === id);
+                if(p) {
+                    document.getElementById('templateModalTitle').textContent = `Usar con: ${p.templateName}`;
+                    document.getElementById('templateModalInstructions').textContent = p.templateInstructions;
+                    const modal = document.getElementById('templateModal');
+                    modal.classList.remove('invisible', 'opacity-0');
+                    modal.querySelector('.modal-content-dark').classList.remove('scale-95');
+                    modal.querySelector('.modal-content-dark').classList.add('scale-100');
+                }
+            };
+
+            window.openAI = (type, id) => {
+                const p = allPrompts.find(x => x.id === id);
+                if(!p) return;
+                const text = encodeURIComponent(p.text);
+                const url = type === 'chatgpt' ? `https://chat.openai.com/?q=${text}` : `https://claude.ai/new?prompt=${text}`;
+                window.open(url, '_blank');
+            };
+
+            // 4. EVENT LISTENERS
+            filtersContainer.addEventListener('click', (e) => {
+                if(e.target.classList.contains('category-btn')) {
+                    state.activeCategory = e.target.dataset.category;
+                    state.currentPage = 1;
+                    renderCategories(); // Para actualizar clase active
+                    renderPrompts();
+                }
+            });
+
+            searchInput.addEventListener('input', (e) => {
+                state.searchTerm = e.target.value;
+                state.currentPage = 1;
+                renderPrompts();
+            });
+
+            prevBtn.addEventListener('click', () => { state.currentPage--; renderPrompts(); });
+            nextBtn.addEventListener('click', () => { state.currentPage++; renderPrompts(); });
+
+            // Cerrar Modales
+            document.querySelectorAll('[id^="close"]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.modal-backdrop').forEach(m => {
+                        m.classList.add('invisible', 'opacity-0');
+                        m.querySelector('.modal-content-dark')?.classList.add('scale-95');
+                    });
+                });
+            });
+
+            // INICIALIZAR
+            renderCategories();
+            renderPrompts();
         });
     </script>
-
 </body>
 </html>
