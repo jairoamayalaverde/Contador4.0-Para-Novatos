@@ -16,14 +16,11 @@
             --bg-body: #0f172a;       /* Slate 900 */
             --bg-card: #1e293b;       /* Slate 800 */
             --bg-input: #020617;      /* Slate 950 */
-            
             --primary: #3b82f6;       /* Azul Neón */
             --primary-glow: rgba(59, 130, 246, 0.5);
-            
             --text-main: #f8fafc;     /* Blanco */
             --text-muted: #94a3b8;    /* Gris azulado */
             --border: #334155;        /* Borde sutil */
-            
             --success: #10b981;       /* Verde */
         }
 
@@ -50,388 +47,161 @@
         }
 
         /* ---------- HEADER ---------- */
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 40px 20px;
-        }
-
+        .header { text-align: center; margin-bottom: 40px; padding: 40px 20px; }
         .header h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            margin-bottom: 10px;
-            color: white;
-            letter-spacing: -1px;
+            font-family: 'Poppins', sans-serif; font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800; margin-bottom: 10px; color: white; letter-spacing: -1px;
         }
-        
-        .header h1 span {
-            color: var(--primary);
-            text-shadow: 0 0 20px var(--primary-glow);
-        }
+        .header h1 span { color: var(--primary); text-shadow: 0 0 20px var(--primary-glow); }
+        .header p { font-size: 1.1rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.6; }
 
-        .header p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* ---------- CONTROLS & SEARCH ---------- */
+        /* ---------- CONTROLS ---------- */
         .controls-section {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 24px;
-            border-radius: 20px;
-            margin-bottom: 40px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            padding: 24px; border-radius: 20px; margin-bottom: 40px;
             box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
 
-        .top-actions {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
+        .top-actions { display: flex; justify-content: center; gap: 15px; margin-bottom: 24px; flex-wrap: wrap; }
 
         .btn-action {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.2s;
-            font-size: 0.9rem;
-            cursor: pointer;
-            border: 1px solid transparent;
+            display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
+            border-radius: 12px; font-weight: 700; text-decoration: none;
+            transition: all 0.2s; font-size: 0.9rem; cursor: pointer; border: 1px solid transparent;
         }
-
-        /* Botón Tips (Secundario) */
-        .btn-tips {
-            background: rgba(255,255,255,0.05);
-            color: var(--text-muted);
-            border-color: var(--border);
-        }
-        .btn-tips:hover {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border-color: white;
-        }
-
-        /* Botón Descarga (Principal) */
-        .btn-download {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 0 15px var(--primary-glow);
-        }
-        .btn-download:hover {
-            background: #2563eb;
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px var(--primary-glow);
-        }
+        .btn-tips { background: rgba(255,255,255,0.05); color: var(--text-muted); border-color: var(--border); }
+        .btn-tips:hover { background: rgba(255,255,255,0.1); color: white; border-color: white; }
+        .btn-download { background: var(--primary); color: white; box-shadow: 0 0 15px var(--primary-glow); }
+        .btn-download:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 0 25px var(--primary-glow); }
 
         /* Buscador */
-        .search-container {
-            position: relative;
-            max-width: 600px;
-            margin: 0 auto 24px;
-        }
-        
+        .search-container { position: relative; max-width: 600px; margin: 0 auto 24px; }
         #searchInput {
-            width: 100%;
-            padding: 14px 24px;
-            padding-left: 50px;
-            border-radius: 14px;
-            background: var(--bg-input);
-            border: 1px solid var(--border);
-            color: white;
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.3s;
+            width: 100%; padding: 14px 24px; padding-left: 50px;
+            border-radius: 14px; background: var(--bg-input); border: 1px solid var(--border);
+            color: white; font-size: 1rem; outline: none; transition: all 0.3s;
         }
-        #searchInput:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-        }
-        .search-icon {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            pointer-events: none;
-        }
+        #searchInput:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+        .search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
 
         /* Filtros */
-        .filters {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
+        .filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
         .filter-btn {
-            background: var(--bg-input);
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 0.9rem;
-            font-weight: 500;
+            background: var(--bg-input); border: 1px solid var(--border);
+            color: var(--text-muted); padding: 8px 16px; border-radius: 20px;
+            cursor: pointer; transition: all 0.2s; font-size: 0.9rem; font-weight: 500;
         }
         .filter-btn:hover { color: white; border-color: var(--primary); }
         .filter-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
+            background: var(--primary); color: white; border-color: var(--primary);
             box-shadow: 0 0 10px var(--primary-glow);
         }
 
-        /* ---------- GRID DE PROMPTS ---------- */
+        /* ---------- GRID DE PROMPTS (Soporte Dual) ---------- */
         .prompts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 24px;
-            margin-bottom: 40px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px; margin-bottom: 40px;
         }
 
-        .prompt-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px;
-            transition: all 0.3s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
+        /* Soporte para ambas clases posibles generadas por JS (.prompt-card y .card) */
+        .prompt-card, .card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 24px; transition: all 0.3s ease;
+            position: relative; display: flex; flex-direction: column; height: 100%;
+            color: var(--text-main); /* Asegura texto visible */
         }
-        
-        .prompt-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
+        .prompt-card:hover, .card:hover {
+            transform: translateY(-5px); border-color: var(--primary);
             box-shadow: 0 10px 30px -10px rgba(0,0,0,0.6);
         }
-
-        /* Línea superior decorativa */
-        .prompt-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), #60a5fa);
-            opacity: 0.7;
+        .prompt-card::before, .card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 3px; background: linear-gradient(90deg, var(--primary), #60a5fa); opacity: 0.7;
         }
 
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
+        /* Estilos internos de la tarjeta */
+        .card-header, .prompt-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+        
+        .prompt-id, .card-id {
+            background: rgba(59, 130, 246, 0.15); color: #60a5fa;
+            font-size: 0.75rem; font-weight: 700; padding: 4px 8px; border-radius: 6px;
         }
 
-        .prompt-id {
-            background: rgba(59, 130, 246, 0.15);
-            color: #60a5fa;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 4px 8px;
-            border-radius: 6px;
+        .prompt-title, h3 { /* h3 por si el script usa etiquetas */
+            color: white; font-family: 'Poppins', sans-serif; font-weight: 700;
+            font-size: 1.1rem; margin-bottom: 10px; line-height: 1.4;
         }
 
-        .prompt-title {
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            line-height: 1.4;
+        .prompt-preview, p { /* p genérico dentro de tarjeta */
+            color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;
+            margin-bottom: 20px; flex-grow: 1;
+            display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
         }
 
-        .prompt-preview {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            flex-grow: 1; /* Empuja el botón al final */
-            
-            /* Limitar texto a 3 líneas */
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+        /* Botones dentro de la tarjeta */
+        .card-actions, .prompt-actions { margin-top: auto; display: flex; gap: 10px; }
+        
+        .btn-copy, button { /* Estilo genérico para botones creados por JS */
+            padding: 10px; background: var(--bg-input); border: 1px solid var(--border);
+            color: white; border-radius: 8px; font-weight: 600; cursor: pointer;
+            transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px;
         }
-
-        .card-actions {
-            margin-top: auto;
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-copy {
-            width: 100%;
-            padding: 10px;
-            background: var(--bg-input);
-            border: 1px solid var(--border);
-            color: white;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .btn-copy:hover {
-            border-color: var(--primary);
-            background: rgba(59, 130, 246, 0.1);
-        }
-
-        .btn-template {
-            padding: 10px;
-            background: rgba(245, 158, 11, 0.1); /* Amarillo suave */
-            color: #fbbf24;
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-        .btn-template:hover {
-            background: rgba(245, 158, 11, 0.2);
-            border-color: #fbbf24;
-        }
+        .btn-copy:hover { border-color: var(--primary); background: rgba(59, 130, 246, 0.1); }
 
         /* ---------- PAGINATION ---------- */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 60px;
-        }
-
+        .pagination { display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 60px; }
         .btn-page {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s;
+            background: var(--bg-card); border: 1px solid var(--border); color: white;
+            padding: 10px 20px; border-radius: 10px; cursor: pointer; font-weight: 600;
         }
-        .btn-page:hover:not(:disabled) {
-            border-color: var(--primary);
-            background: rgba(59, 130, 246, 0.1);
-        }
-        .btn-page:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+        .btn-page:hover:not(:disabled) { border-color: var(--primary); background: rgba(59, 130, 246, 0.1); }
+        .btn-page:disabled { opacity: 0.5; cursor: not-allowed; }
 
-        /* ---------- FOOTER 3D (Estilos) ---------- */
+        /* ---------- FOOTER 3D ---------- */
         .footer-container-3d {
-            position: relative;
-            margin-top: auto; /* Empuja al fondo */
-            background-color: var(--bg-card);
-            border-top: 1px solid var(--border);
-            padding-top: 20px; /* Ajuste para que el robot se siente bien */
+            position: relative; margin-top: auto;
+            background-color: var(--bg-card); border-top: 1px solid var(--border);
+            padding-top: 20px;
         }
-
         @keyframes float {
             0% { transform: translate(-50%, 0px); }
             50% { transform: translate(-50%, -12px); }
             100% { transform: translate(-50%, 0px); }
         }
-
         .robot-wrapper {
-            position: absolute;
-            top: -130px; /* Posición sentado */
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            width: 150px;
-            animation: float 4s ease-in-out infinite;
-            pointer-events: none;
+            position: absolute; top: -130px; left: 50%;
+            transform: translateX(-50%); z-index: 10; width: 150px;
+            animation: float 4s ease-in-out infinite; pointer-events: none;
         }
-
-        .robot-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            filter: drop-shadow(0 10px 30px rgba(59, 130, 246, 0.4));
-        }
-
+        .robot-img { width: 100%; height: auto; display: block; filter: drop-shadow(0 10px 30px rgba(59, 130, 246, 0.4)); }
         .robot-bubble {
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            color: #0f172a;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 800;
-            white-space: nowrap;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            border: 2px solid #dbeafe;
+            position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+            background: white; color: #0f172a; padding: 6px 16px; border-radius: 20px;
+            font-size: 0.8rem; font-weight: 800; white-space: nowrap;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); border: 2px solid #dbeafe;
         }
         .robot-bubble::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-top: 6px solid white;
+            content: ''; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
+            border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 6px solid white;
         }
-
         .neon-divider {
-            height: 4px;
-            width: 100%;
+            height: 4px; width: 100%; margin-bottom: 30px;
             background: linear-gradient(90deg, var(--bg-card) 0%, var(--primary) 50%, var(--bg-card) 100%);
             box-shadow: 0 0 20px var(--primary-glow);
-            margin-bottom: 30px;
         }
-
-        .app-footer {
-            padding: 40px 20px;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+        .app-footer { padding: 40px 20px; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
         .app-footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
         .app-footer a:hover { color: white; text-shadow: 0 0 10px var(--primary-glow); }
 
-        /* ---------- TOAST ---------- */
+        /* ---------- TOAST & MODAL ---------- */
         .toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #10b981;
-            color: #0f172a;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-weight: 700;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transform: translateY(100px);
-            transition: transform 0.3s;
-            z-index: 2000;
+            position: fixed; bottom: 20px; right: 20px; background: #10b981;
+            color: #0f172a; padding: 12px 24px; border-radius: 10px; font-weight: 700;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); transform: translateY(100px);
+            transition: transform 0.3s; z-index: 2000;
         }
         .toast.show { transform: translateY(0); }
-
-        /* ---------- MODAL (Simple Dark) ---------- */
+        
         .modal-overlay {
             position: fixed; inset: 0; background: rgba(0,0,0,0.8);
             backdrop-filter: blur(5px); display: none; z-index: 1000;
@@ -443,14 +213,10 @@
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7); display: none; z-index: 1001;
         }
         .modal.active { display: block; }
-        .close-btn { 
-            position: absolute; top: 15px; right: 15px; background: none; border: none; 
-            color: var(--text-muted); font-size: 1.5rem; cursor: pointer; 
-        }
+        .close-btn { position: absolute; top: 15px; right: 15px; background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
         .modal h3 { color: white; margin-bottom: 15px; font-family: 'Poppins', sans-serif; }
         .modal p, .modal li { color: var(--text-muted); line-height: 1.6; margin-bottom: 10px; }
-        
-        /* Ajustes Responsivos */
+
         @media (max-width: 768px) {
             .header h1 { font-size: 2rem; }
             .prompts-grid { grid-template-columns: 1fr; }
@@ -469,7 +235,6 @@
         </header>
 
         <section class="controls-section">
-            
             <div class="top-actions">
                 <button id="tipsBtn" class="btn-action btn-tips">💡 Cómo usar esta App</button>
                 <a href="https://docs.google.com/spreadsheets/d/1C4aw-6r4H6oqzSJBMTWPpifH0mv_RrOh/edit?usp=sharing&ouid=117747348782923671781&rtpof=true&sd=true" target="_blank" class="btn-action btn-download">
@@ -483,15 +248,14 @@
             </div>
 
             <div class="filters" id="categoryFilters">
-                <button class="filter-btn active" data-category="all">Todos</button>
-                <button class="filter-btn" data-category="Basico">Básicos</button>
-                <button class="filter-btn" data-category="Intermedio">Intermedios</button>
-                <button class="filter-btn" data-category="Avanzado">Avanzados</button>
+                <button class="filter-btn active" data-category="all" data-filter="all">Todos</button>
+                <button class="filter-btn" data-category="Basico" data-filter="Basico">Básicos</button>
+                <button class="filter-btn" data-category="Intermedio" data-filter="Intermedio">Intermedios</button>
+                <button class="filter-btn" data-category="Avanzado" data-filter="Avanzado">Avanzados</button>
             </div>
         </section>
 
-        <div id="promptsContainer" class="prompts-grid">
-            </div>
+        <div id="promptsContainer" class="prompts-grid"></div>
 
         <div class="pagination">
             <button id="prevBtn" class="btn-page" disabled>← Anterior</button>
@@ -502,28 +266,14 @@
     </div>
 
     <div class="footer-container-3d">
-        
         <div class="robot-wrapper">
-            <div class="robot-bubble">
-                ¡Empieza aquí! 🚀
-            </div>
-            <img 
-                src="https://contador4-0-master.vercel.app/personaje-contador.png" 
-                alt="Asistente Contador" 
-                class="robot-img"
-            >
+            <div class="robot-bubble">¡Empieza aquí! 🚀</div>
+            <img src="https://contador4-0-master.vercel.app/personaje-contador.png" alt="Asistente Contador" class="robot-img">
         </div>
-
         <div class="neon-divider"></div>
-
         <footer class="app-footer">
-            <p>
-                Contador 4.0 para Novatos es un desarrollo de 
-                <a href="https://jairoamaya.co" target="_blank">Jairo Amaya - Full Stack Marketer</a>.
-            </p>
-            <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 10px;">
-                Todos los derechos reservados © 2025.
-            </p>
+            <p>Contador 4.0 para Novatos es un desarrollo de <a href="https://jairoamaya.co" target="_blank">Jairo Amaya - Full Stack Marketer</a>.</p>
+            <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 10px;">Todos los derechos reservados © 2025.</p>
         </footer>
     </div>
 
@@ -531,10 +281,9 @@
         <button class="close-btn" onclick="closeModal('tipsModal')">&times;</button>
         <h3>💡 Cómo usar esta App</h3>
         <ul style="padding-left: 20px; color: var(--text-muted);">
-            <li><strong>Descarga Primero:</strong> Usa el botón de arriba para bajar las plantillas de Excel.</li>
-            <li><strong>Filtra:</strong> Usa los botones de categoría para navegar.</li>
-            <li><strong>Copia:</strong> Dale clic a "Copiar" y pégalo en ChatGPT.</li>
-            <li><strong>Plantillas:</strong> Si un prompt dice "Usar Plantilla", descarga el Excel primero.</li>
+            <li><strong>Descarga Primero:</strong> Usa el botón de arriba para bajar las plantillas.</li>
+            <li><strong>Filtra:</strong> Navega por categorías.</li>
+            <li><strong>Copia:</strong> Dale clic a "Copiar" y pégalo en tu IA favorita.</li>
         </ul>
     </div>
 
