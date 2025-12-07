@@ -87,8 +87,8 @@
 
         /* FOOTER REFERENCE STYLE */
         .footer-reference {
-            background-color: #0f172a; /* Fondo oscuro */
-            padding-top: 140px; /* Espacio para el robot */
+            background-color: #0f172a; 
+            padding-top: 140px; 
             padding-bottom: 60px;
             position: relative;
             border-top: 1px solid var(--border);
@@ -309,6 +309,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             console.log("Iniciando Contador 4.0 Dark Mode...");
 
+            // 1. DATA (TODOS LOS 100 PROMPTS)
             const categories = {
                 'fundamentos': 'Fundamentos',
                 'estados-financieros': 'Estados Financieros',
@@ -544,6 +545,21 @@
                 const url = type === 'chatgpt' ? `https://chat.openai.com/?q=${text}` : `https://claude.ai/new?prompt=${text}`;
                 window.open(url, '_blank');
             };
+
+            // Event Listeners corregidos
+            const openTipsBtn = document.getElementById('openTipsBtn');
+            const tipsModal = document.getElementById('tipsModal');
+            
+            if (openTipsBtn && tipsModal) {
+                openTipsBtn.addEventListener('click', () => {
+                    tipsModal.classList.remove('invisible', 'opacity-0');
+                    const content = tipsModal.querySelector('.modal-content-dark');
+                    if(content) {
+                        content.classList.remove('scale-95');
+                        content.classList.add('scale-100');
+                    }
+                });
+            }
 
             filtersContainer.addEventListener('click', (e) => {
                 if(e.target.classList.contains('category-btn')) {
