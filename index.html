@@ -12,29 +12,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* ---------- VARIABLES DARK MODE (Cyber-Tech) ---------- */
+        /* ---------- VARIABLES DARK MODE ---------- */
         :root {
             --bg-body: #0f172a;       /* Slate 900 */
             --bg-card: #1e293b;       /* Slate 800 */
             --bg-input: #020617;      /* Slate 950 */
-            
             --primary: #3b82f6;       /* Azul Neón */
-            --primary-glow: rgba(59, 130, 246, 0.5);
-            
             --text-main: #f8fafc;     /* Blanco */
             --text-muted: #94a3b8;    /* Gris azulado */
             --border: #334155;        /* Borde sutil */
-            
-            --success: #10b981;       /* Verde */
         }
 
         body {
             font-family: 'Lato', sans-serif;
             background-color: var(--bg-body);
             color: var(--text-main);
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 25%);
+            background-image: radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 25%);
         }
 
         .font-display { font-family: 'Poppins', sans-serif; }
@@ -54,100 +47,78 @@
 
         /* INPUTS & CONTROLES */
         #searchInput {
-            background-color: var(--bg-input);
-            border-color: var(--border);
-            color: white;
+            background-color: var(--bg-input); border-color: var(--border); color: white;
         }
-        #searchInput:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 2px var(--primary-glow);
-        }
+        #searchInput:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); }
 
         /* CATEGORIAS */
         .category-btn {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text-muted);
+            background-color: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted);
         }
-        .category-btn:hover { border-color: var(--primary); color: white; }
         .category-btn.active {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            box-shadow: 0 0 10px var(--primary-glow);
+            background-color: var(--primary); color: white; border-color: var(--primary);
         }
 
-        /* TARJETAS (PROMPTS) */
+        /* TARJETAS */
         .prompt-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 1rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            background-color: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 1rem; transition: all 0.3s ease; position: relative;
         }
         .prompt-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
+            transform: translateY(-5px); border-color: var(--primary);
             box-shadow: 0 10px 30px -10px rgba(0,0,0,0.6);
         }
-        .prompt-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-            background: linear-gradient(90deg, var(--primary), #60a5fa); opacity: 0.7;
-        }
 
-        /* Botones dentro de tarjetas */
+        /* BOTONES INTERNOS */
         .btn-action-dark {
-            background-color: var(--bg-input);
-            border: 1px solid var(--border);
-            color: var(--text-muted);
+            background-color: var(--bg-input); border: 1px solid var(--border); color: var(--text-muted);
         }
-        .btn-action-dark:hover {
-            border-color: var(--primary);
-            color: white;
-            background-color: rgba(59, 130, 246, 0.1);
-        }
-
-        /* Botón Plantilla */
+        .btn-action-dark:hover { border-color: var(--primary); color: white; }
+        
         .btn-plantilla {
-            background-color: rgba(245, 158, 11, 0.15);
-            color: #fbbf24;
-            border: 1px solid rgba(245, 158, 11, 0.3);
+            background-color: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);
         }
-        .btn-plantilla:hover {
-            background-color: rgba(245, 158, 11, 0.25);
-            border-color: #fbbf24;
-        }
+        .btn-plantilla:hover { background-color: rgba(245, 158, 11, 0.25); border-color: #fbbf24; }
 
-        /* Botón Copiar Principal */
         .btn-copy-main {
-            background-color: var(--primary);
-            color: white;
-            box-shadow: 0 0 10px var(--primary-glow);
+            background-color: var(--primary); color: white; box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
         }
-        .btn-copy-main:hover {
-            background-color: #2563eb;
+        .btn-copy-main:hover { background-color: #2563eb; }
+
+        /* FOOTER REFERENCE STYLE */
+        .footer-reference {
+            background-color: #0f172a; /* Fondo oscuro */
+            padding-top: 140px; /* Espacio para el robot */
+            padding-bottom: 60px;
+            position: relative;
+            border-top: 1px solid var(--border);
+            margin-top: 100px;
+        }
+        
+        .footer-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            text-align: center;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
         }
 
-        /* Paginación */
-        .btn-page {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            color: white;
+        .footer-link {
+            color: #94a3b8;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
         }
-        .btn-page:hover:not(:disabled) {
-            border-color: var(--primary);
-        }
-        .btn-page:disabled { opacity: 0.5; }
+        .footer-link:hover { color: white; text-shadow: 0 0 10px var(--primary); }
 
-        /* FOOTER 3D */
-        .footer-container-3d {
-            position: relative; margin-top: 8rem;
-            background-color: var(--bg-card); border-top: 1px solid var(--border);
-            padding-top: 2rem; padding-bottom: 2rem;
-        }
+        /* ROBOT 3D */
         .robot-wrapper {
-            position: absolute; top: -130px; left: 50%;
+            position: absolute; top: -110px; left: 50%;
             transform: translateX(-50%); width: 150px; z-index: 10;
             animation: float 4s ease-in-out infinite; pointer-events: none;
         }
@@ -166,36 +137,42 @@
         @keyframes float { 0% { transform: translate(-50%, 0px); } 50% { transform: translate(-50%, -12px); } 100% { transform: translate(-50%, 0px); } }
         
         .neon-divider {
-            height: 4px; width: 100%; margin-bottom: 2rem;
-            background: linear-gradient(90deg, var(--bg-card) 0%, var(--primary) 50%, var(--bg-card) 100%);
-            box-shadow: 0 0 20px var(--primary-glow);
+            height: 4px; width: 100%; position: absolute; top: 0; left: 0;
+            background: linear-gradient(90deg, #0f172a 0%, var(--primary) 50%, #0f172a 100%);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
         }
 
-        /* MODAL */
+        /* MODAL DARK */
         .modal-content-dark {
             background-color: var(--bg-card);
             border: 1px solid var(--border);
             color: var(--text-main);
         }
+        .step-number {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 800;
+            min-width: 30px;
+        }
     </style>
 </head>
 <body>
 
-    <div class="container mx-auto max-w-7xl px-4 pt-8 pb-20 flex-grow">
+    <div class="container mx-auto max-w-7xl px-4 pt-8 pb-10 flex-grow">
 
         <header class="header-cyber p-8 md:p-12 mb-10 text-center relative shadow-2xl">
             <h1 class="font-display text-4xl md:text-5xl font-bold mb-4">
-                Contador 4.0 <span style="color: var(--primary); text-shadow: 0 0 20px var(--primary-glow);">para Novatos</span>
+                Contador 4.0 <span style="color: var(--primary); text-shadow: 0 0 20px rgba(59, 130, 246, 0.6);">para Novatos</span>
             </h1>
             <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
                 El complemento del E.book "Sistema de transformación con IA para contadores", con 100 prompts esenciales para empezar.
             </p>
             
             <div class="flex flex-wrap justify-center gap-4">
-                <button id="openTipsBtn" class="px-5 py-2.5 rounded-lg font-bold text-sm bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-gray-300">
+                <button id="openTipsBtn" class="px-5 py-2.5 rounded-lg font-bold text-sm bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-gray-300 flex items-center gap-2">
                     💡 Cómo usar esta App
                 </button>
-                <a href="https://docs.google.com/spreadsheets/d/1C4aw-6r4H6oqzSJBMTWPpifH0mv_RrOh/edit?usp=sharing&ouid=117747348782923671781&rtpof=true&sd=true" target="_blank" class="px-5 py-2.5 rounded-lg font-bold text-sm bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/30 transition-all transform hover:-translate-y-0.5">
+                <a href="https://docs.google.com/spreadsheets/d/1C4aw-6r4H6oqzSJBMTWPpifH0mv_RrOh/edit?usp=sharing&ouid=117747348782923671781&rtpof=true&sd=true" target="_blank" class="px-5 py-2.5 rounded-lg font-bold text-sm bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/30 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
                     📥 Descargar 21 Plantillas (Excel)
                 </a>
             </div>
@@ -203,7 +180,7 @@
 
         <div class="mb-12">
             <div class="max-w-2xl mx-auto mb-8 relative">
-                <input type="text" id="searchInput" placeholder="Buscar prompt por palabra clave..." class="w-full p-4 pl-12 rounded-xl text-lg transition-all focus:outline-none">
+                <input type="text" id="searchInput" placeholder="Buscar prompt por palabra clave..." class="w-full p-4 pl-12 rounded-xl text-lg transition-all focus:outline-none shadow-lg">
                 <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-xl">🔍</span>
             </div>
             
@@ -215,33 +192,100 @@
             </div>
 
         <div id="paginationControls" class="flex justify-center items-center gap-6">
-            <button id="prevPageBtn" class="btn-page px-6 py-2 rounded-lg font-bold transition-colors disabled:opacity-50">Anterior</button>
+            <button id="prevPageBtn" class="btn-page px-6 py-2 rounded-lg font-bold transition-colors disabled:opacity-50 border border-slate-700 hover:border-blue-500 bg-slate-800 text-white">Anterior</button>
             <span id="pageInfo" class="text-gray-400 font-mono">Página 1 de 1</span>
-            <button id="nextPageBtn" class="btn-page px-6 py-2 rounded-lg font-bold transition-colors disabled:opacity-50">Siguiente</button>
+            <button id="nextPageBtn" class="btn-page px-6 py-2 rounded-lg font-bold transition-colors disabled:opacity-50 border border-slate-700 hover:border-blue-500 bg-slate-800 text-white">Siguiente</button>
         </div>
 
     </div>
 
-    <div class="footer-container-3d">
+    <footer class="footer-reference">
+        
+        <div class="neon-divider"></div>
+
         <div class="robot-wrapper">
             <div class="robot-bubble">¡Empieza aquí! 🚀</div>
             <img src="https://contador4-0-master.vercel.app/personaje-contador.png" alt="Asistente" class="robot-img">
         </div>
-        <div class="neon-divider"></div>
-        <footer class="text-center text-gray-500 text-sm">
-            <p>Contador 4.0 para Novatos • Desarrollado por <a href="https://jairoamaya.co" target="_blank" class="text-blue-400 hover:text-white transition-colors">Jairo Amaya</a></p>
-            <p class="mt-2 opacity-60">Todos los derechos reservados © 2025.</p>
-        </footer>
-    </div>
+
+        <div class="container mx-auto px-4 text-center">
+            
+            <h2 class="font-display text-2xl font-bold text-white mb-2">Contador 4.0 Novatos</h2>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto">
+                Es un complemento digital del E-book "Contador 4.0: Sistema de Transformación con IA" que incluye 100 prompts básicos.
+            </p>
+
+            <div class="footer-card">
+                <p class="text-gray-400 mb-2 font-medium">Herramienta de productividad diseñada por</p>
+                <a href="https://jairoamaya.co" target="_blank" class="text-xl font-bold text-blue-400 hover:text-white transition-colors border-b-2 border-blue-500/30 hover:border-blue-400 pb-1">
+                    Jairo Amaya - Full Stack Marketer
+                </a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-8 mb-8 mt-10">
+                <a href="https://jairoamaya.co" target="_blank" class="footer-link">Sitio Web</a>
+                <span class="text-slate-700">•</span>
+                <a href="https://linkedin.com/in/jairoamaya" target="_blank" class="footer-link">LinkedIn</a>
+                <span class="text-slate-700">•</span>
+                <a href="mailto:hola@jairoamaya.co" class="footer-link">Contacto</a>
+            </div>
+
+            <p class="text-slate-600 text-sm">Todos los derechos reservados © 2025 Jairo Amaya.</p>
+        </div>
+    </footer>
 
     <div id="tipsModal" class="modal-backdrop fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 invisible opacity-0 transition-all z-50">
-        <div class="modal-content-dark w-full max-w-lg rounded-2xl shadow-2xl p-8 relative transform scale-95 transition-all">
-            <button id="closeTipsBtn" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
-            <h3 class="font-display text-2xl font-bold text-white mb-6">💡 Guía Rápida</h3>
-            <ul class="space-y-4 text-gray-300">
-                <li><strong>1. Descarga:</strong> Baja el Excel de plantillas primero.</li>
-                <li><strong>2. Busca:</strong> Usa el buscador o los filtros.</li>
-                <li><strong>3. Copia:</strong> Usa el botón azul para llevar el prompt a ChatGPT.</li>
+        <div class="modal-content-dark w-full max-w-2xl rounded-2xl shadow-2xl p-8 relative transform scale-95 transition-all max-h-[90vh] overflow-y-auto">
+            <button id="closeTipsBtn" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl leading-none">&times;</button>
+            
+            <div class="flex items-center gap-3 mb-6 border-b border-slate-700 pb-4">
+                <span class="text-3xl">💡</span>
+                <h3 class="font-display text-2xl font-bold text-white">Cómo usar esta App</h3>
+            </div>
+
+            <ul class="space-y-6 text-gray-300">
+                <li class="flex gap-4">
+                    <span class="step-number">1.</span>
+                    <div>
+                        <strong class="text-white block mb-1">Descarga Primero:</strong>
+                        Antes de empezar, usa el botón <span class="text-blue-400">"Descarga 21 plantillas..."</span> en la cabecera para tener tus herramientas de Excel listas.
+                    </div>
+                </li>
+                <li class="flex gap-4">
+                    <span class="step-number">2.</span>
+                    <div>
+                        <strong class="text-white block mb-1">Filtra y Explora:</strong>
+                        Usa <span class="text-blue-400">Categorías</span> o la barra de búsqueda para encontrar el prompt que necesitas.
+                    </div>
+                </li>
+                <li class="flex gap-4">
+                    <span class="step-number">3.</span>
+                    <div>
+                        <strong class="text-white block mb-1">Usa las Plantillas:</strong>
+                        Si ves <span class="text-yellow-400">"Usar Plantilla"</span>, haz clic. Te dirá *cuál* plantilla de tu pack usar (ej: "Plantilla 5"). Llénala con tus datos y luego usa el prompt.
+                    </div>
+                </li>
+                <li class="flex gap-4">
+                    <span class="step-number">4.</span>
+                    <div>
+                        <strong class="text-white block mb-1">Copia Fácil:</strong>
+                        El botón <span class="text-blue-400">"Copiar"</span> pone el prompt en tu portapapeles.
+                    </div>
+                </li>
+                <li class="flex gap-4">
+                    <span class="step-number">5.</span>
+                    <div>
+                        <strong class="text-white block mb-1">Ejecuta Directo:</strong>
+                        ChatGPT, Claude o Manus copian el prompt y abren la IA. Solo "Pega" (Ctrl+V).
+                    </div>
+                </li>
+                <li class="flex gap-4">
+                    <span class="step-number">6.</span>
+                    <div>
+                        <strong class="text-white block mb-1">Navega por Páginas:</strong>
+                        Usa "Siguiente" y "Anterior" para ver todos los prompts.
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
@@ -250,11 +294,14 @@
         <div class="modal-content-dark w-full max-w-lg rounded-2xl shadow-2xl p-8 relative">
             <button id="closeTemplateModalBtn" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
             <h3 id="templateModalTitle" class="font-display text-xl font-bold text-white mb-4"></h3>
-            <p id="templateModalInstructions" class="text-gray-300 whitespace-pre-line"></p>
+            <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+                <p id="templateModalInstructions" class="text-gray-300 whitespace-pre-line leading-relaxed"></p>
+            </div>
         </div>
     </div>
 
-    <div id="toast" class="fixed bottom-5 right-5 bg-green-500 text-black font-bold px-6 py-3 rounded-lg shadow-xl translate-y-20 transition-all z-50">
+    <div id="toast" class="fixed bottom-5 right-5 bg-green-500 text-black font-bold px-6 py-3 rounded-lg shadow-xl translate-y-20 transition-all z-50 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
         ¡Copiado al portapapeles!
     </div>
 
@@ -262,7 +309,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             console.log("Iniciando Contador 4.0 Dark Mode...");
 
-            // 1. DATA (TODOS LOS 100 PROMPTS)
             const categories = {
                 'fundamentos': 'Fundamentos',
                 'estados-financieros': 'Estados Financieros',
@@ -385,7 +431,6 @@
                 activeCategory: 'all'
             };
 
-            // DOM
             const grid = document.getElementById('promptsGrid');
             const searchInput = document.getElementById('searchInput');
             const filtersContainer = document.getElementById('categoryFilters');
@@ -394,7 +439,6 @@
             const pageInfo = document.getElementById('pageInfo');
             const toast = document.getElementById('toast');
 
-            // 2. RENDERIZADO
             function renderCategories() {
                 const counts = allPrompts.reduce((acc, p) => {
                     acc[p.category] = (acc[p.category] || 0) + 1;
@@ -412,7 +456,6 @@
             }
 
             function renderPrompts() {
-                // Filtros
                 let filtered = state.activeCategory === 'all' 
                     ? allPrompts 
                     : allPrompts.filter(p => p.category === state.activeCategory);
@@ -425,7 +468,6 @@
                     );
                 }
 
-                // Paginación
                 const totalPages = Math.ceil(filtered.length / state.itemsPerPage) || 1;
                 if (state.currentPage > totalPages) state.currentPage = 1;
                 
@@ -433,7 +475,6 @@
                 const end = start + state.itemsPerPage;
                 const pageItems = filtered.slice(start, end);
 
-                // HTML Grid
                 if (pageItems.length === 0) {
                     grid.innerHTML = `<p class="col-span-full text-center text-gray-500 py-10">No se encontraron resultados.</p>`;
                 } else {
@@ -469,16 +510,12 @@
                     }).join('');
                 }
 
-                // Actualizar Paginación
                 pageInfo.textContent = `Página ${state.currentPage} de ${totalPages}`;
                 prevBtn.disabled = state.currentPage === 1;
                 nextBtn.disabled = state.currentPage === totalPages;
-                
-                // Ocultar si solo hay 1 página
                 document.getElementById('paginationControls').style.display = totalPages > 1 ? 'flex' : 'none';
             }
 
-            // 3. ACCIONES
             window.copyText = (id) => {
                 const p = allPrompts.find(x => x.id === id);
                 if(p) {
@@ -508,12 +545,11 @@
                 window.open(url, '_blank');
             };
 
-            // 4. EVENT LISTENERS
             filtersContainer.addEventListener('click', (e) => {
                 if(e.target.classList.contains('category-btn')) {
                     state.activeCategory = e.target.dataset.category;
                     state.currentPage = 1;
-                    renderCategories(); // Para actualizar clase active
+                    renderCategories();
                     renderPrompts();
                 }
             });
@@ -527,7 +563,6 @@
             prevBtn.addEventListener('click', () => { state.currentPage--; renderPrompts(); });
             nextBtn.addEventListener('click', () => { state.currentPage++; renderPrompts(); });
 
-            // Cerrar Modales
             document.querySelectorAll('[id^="close"]').forEach(btn => {
                 btn.addEventListener('click', () => {
                     document.querySelectorAll('.modal-backdrop').forEach(m => {
@@ -537,7 +572,6 @@
                 });
             });
 
-            // INICIALIZAR
             renderCategories();
             renderPrompts();
         });
